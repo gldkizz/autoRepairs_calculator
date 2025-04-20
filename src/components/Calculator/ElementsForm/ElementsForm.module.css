@@ -1,0 +1,100 @@
+.wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.calculatorWrapper {
+    background-color: #343434;
+    padding: 10px 10px;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.text {
+    font-size: 15px;
+    color: #E9E9E9;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.radioGroupCategory {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.radioGroupCategory:nth-child(4) {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.radioGroupCategory label {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.radioGroupTypeWork{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.radioGroupTypeWork label {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.sizeWrapper, .buildTimeWrapper, .priceWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sizeText, .buildTimeText, .priceText {
+    font-size: 15px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.sizeInput, .buildTimeInput, .priceInput {
+    background-color: #2A2A2A;
+    padding: 6px 0 6px 10px;
+    height: 30px;
+    width: 157px;
+    border-radius: 5px;
+    color: #E9E9E9;
+    font-size: 14px;
+}
+
+.buttonWrapper {
+    padding: 5px 24px;
+    background-color: #2A2A2A;
+    width: 115px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.button {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #2A2A2A;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px 90px;
+    text-align: center;
+}

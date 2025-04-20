@@ -1,0 +1,45 @@
+.wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ownerInfoForm {
+    margin-top: 20px;
+    margin: 20px 26px 0 26px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.ownerInfoFormItem {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards;
+    background-color: #343434;
+    color: #E9E9E9;
+    width: 100%;
+    padding: 6px 0 6px 10px;
+    font-size: 14px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Задержки для каждого элемента */
+.ownerInfoFormItem:nth-child(1){ animation-delay: 0.1s; }
+.ownerInfoFormItem:nth-child(2){ animation-delay: 0.2s; }
+.ownerInfoFormItem:nth-child(3){ animation-delay: 0.3s; }
+.ownerInfoFormItem:nth-child(4){ animation-delay: 0.4s; }
+.ownerInfoFormItem:nth-child(5){ animation-delay: 0.5s; }
+.ownerInfoFormItem:nth-child(6){ animation-delay: 0.6s; }

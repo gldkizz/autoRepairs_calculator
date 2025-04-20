@@ -1,0 +1,29 @@
+.wrapper {
+    min-height: 50px;
+    width: 100%;
+    background-color: #323232;
+}
+
+.list {
+    display: flex;
+    padding: 8px 0;
+    justify-content: space-around;
+}
+.listItem {
+    font-size: 10px;
+    color: #E9E9E9;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.logo {
+    align-self: center;
+}
+.logo svg {
+    width: 18px;
+    height: 18px;
+}
+
+.active li p{
+    color: red;
+}
