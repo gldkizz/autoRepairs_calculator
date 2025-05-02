@@ -1,6 +1,6 @@
 import { Form, Field } from 'react-final-form'
 
-const SettingsTableForm = ({onSubmit, onFieldChange, initialValues}) => {
+const SettingsTableForm = ({onSubmit, onFieldChange, initialValues, tableName}) => {
     return (
         <Form
             initialValues={initialValues}
@@ -13,11 +13,36 @@ const SettingsTableForm = ({onSubmit, onFieldChange, initialValues}) => {
                     <p className="itemTitleCategory2">2</p>
                     <p className="itemTitleCategory3">3</p>
                     <p className="itemTitleCategory4">4</p>
-                    <p className="itemTitleBetween1">от 1 до 3 см</p>
-                    <p className="itemTitleBetween2">от 4 до 10 см</p>
-                    <p className="itemTitleBetween3">от 11 до 20 см</p>
-                    <p className="itemTitleBetween4">свыше 20 см</p>
-                    <p className="itemTitleBetween5">{"+> 20"}</p>
+                    {(tableName === 'settings_hail') 
+                        ?
+                        <p className="itemTitleBetween1">от 1 до 30</p> 
+                        :
+                        <p className="itemTitleBetween1">от 1 до 3 см</p>
+                    }
+                    {(tableName === 'settings_hail') 
+                        ?
+                        <p className="itemTitleBetween2">от 30 до 150</p> 
+                        :
+                        <p className="itemTitleBetween2">от 4 до 10 см</p>
+                    }
+                    {(tableName === 'settings_hail') 
+                        ?
+                        <p className="itemTitleBetween3">от 150 до 600</p> 
+                        :
+                        <p className="itemTitleBetween3">от 11 до 20 см</p>
+                    }
+                    {(tableName === 'settings_hail') 
+                        ?
+                        <p className="itemTitleBetween4">свыше 600</p> 
+                        :
+                        <p className="itemTitleBetween4">свыше 20 см</p>
+                    }
+                    {(tableName === 'settings_hail') 
+                        ?
+                        <p className="itemTitleBetween5">{"+> 600"}</p> 
+                        :
+                        <p className="itemTitleBetween5">{"+> 20"}</p>
+                    }
 
                     <Field name="input11">
                         { ({input}) => (
@@ -262,7 +287,6 @@ const SettingsTableForm = ({onSubmit, onFieldChange, initialValues}) => {
                                 />
                         ) }
                     </Field>
-
                     <Field name="input51">
                         { ({input}) => (
                             <input 
@@ -323,31 +347,9 @@ const SettingsTableForm = ({onSubmit, onFieldChange, initialValues}) => {
                                 />
                         ) }
                     </Field>
-
-                    {/* <input className="input11" value="100"></input>
-                    <input className="input12" value="100"></input>
-                    <input className="input13" value="100"></input>
-                    <input className="input14" value="100"></input>
-                    <input className="input21" value="100"></input>
-                    <input className="input22" value="100"></input>
-                    <input className="input23" value="100"></input>
-                    <input className="input24" value="100"></input>
-                    <input className="input31" value="100"></input>
-                    <input className="input32" value="100"></input>
-                    <input className="input33" value="100"></input>
-                    <input className="input34" value="100"></input>
-                    <input className="input41" value="100"></input>
-                    <input className="input42" value="100"></input>
-                    <input className="input43" value="100"></input>
-                    <input className="input44" value="100"></input>
-                    <input className="input51" value="100"></input>
-                    <input className="input52" value="100"></input>
-                    <input className="input53" value="100"></input>
-                    <input className="input54" value="100"></input> */}
                 </form>
             ) }
         >
-
         </Form>
     )
 }

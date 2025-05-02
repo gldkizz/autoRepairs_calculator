@@ -86,6 +86,9 @@
     font-weight: bold;
     font-size: 14px;
 }
+.button:disabled {
+    color: #8c8c8c;
+}
 
 .select {
     appearance: none;

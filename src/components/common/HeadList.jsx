@@ -1,19 +1,19 @@
 import styled from "styled-components"
 
-const HeadList = ({name, isButtonActivate, toggleActivateButton}) => {
+const HeadList = ({name, isButtonActivate, toggleActivateButton,index}) => {
 
   return (
     <>
       {isButtonActivate ? 
         <StyledWrapperWhenButtonActivate>
-          <button className="btnWrapper" onClick={() => toggleActivateButton()}>
+          <button className="btnWrapper" onClick={() => toggleActivateButton(index)}>
             <figure></figure>
             <a href="#" className="btn2"><span className="spn2">{name}</span></a>
           </button>
         </StyledWrapperWhenButtonActivate>
       :
         <StyledWrapper>
-          <button className="btnWrapper" onClick={() => toggleActivateButton()}>
+          <button className="btnWrapper" onClick={() => toggleActivateButton(index)}>
             <figure></figure>
             <a href="#" className="btn2"><span className="spn2">{name}</span></a>
           </button>

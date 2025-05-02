@@ -75,6 +75,7 @@ let SettingsTable = ({tableName, settingsData}) => {
                 onSubmit={onSubmit} 
                 initialValues={formState}
                 onFieldChange={onFieldChange}
+                tableName={tableName}
             />
         </StyledWrapper>
     )

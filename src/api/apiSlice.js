@@ -67,17 +67,36 @@ export const supabaseApi = createApi({
 
         getSettings: builder.query({
             queryFn: async (data) => {
-                const {data: settings} = await supabase.rpc('get_Settings', {
-                    typeOfWork: data.typeOfWork,
-                    category: data.category,
-                    size: data.size
-                })
-                return settings
+                if(Number(data.category) !== 0 && Number(data.typeOfWork) !== 0) {
+                    try {
+                      const { data: result, error } = await supabase
+                        .rpc('get_settings', {
+                          typeofwork: Number(data.typeOfWork),
+                          category_num: Number(data.category)
+                        })
+                        .select('*')
+                        .single();
+              
+                      if(error) throw error;
+                      
+                      return { data: result };
+                    } catch (error) {
+                      return { error };
+                    }
+                  }
+                  return { data: null };
             },
             invalidatesTags: [SETTINGS_TAG]
+        }),
+        getAdditionalSettings: builder.query({
+            queryFn: async () => {
+                const {data: additionalSettings, error} = await supabase.rpc('get_additional_settings').select("*")
+                if(error) throw error
+                return {data: additionalSettings}
+            }
         })
     })
 })
 
 
-export const {useGetAllSettingsQuery, useUpdateSettingsMutation, useLazyGetSettingsQuery} = supabaseApi
+export const {useGetAllSettingsQuery, useUpdateSettingsMutation, useLazyGetSettingsQuery, useGetAdditionalSettingsQuery} = supabaseApi

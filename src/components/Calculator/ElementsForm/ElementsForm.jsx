@@ -1,31 +1,44 @@
 import { Form, Field } from 'react-final-form'
 import HeadList from '../../common/HeadList'
 import styles from './ElementsForm.module.css'
-import PickerField from './PickerField/PickerField'
+import { useState } from 'react';
 
-const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActivate, setTempState, tempState, price, onFieldChange}) => (
+const ElementsForm = ({addNewElement, toggleActivateSecondButton, isSecondButtonActivate, tempState, onFieldChange,index}) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    return (
         <Form 
-            onSubmit={onSubmit}
-            initialValues={{price}}
-            render = { ({handleSubmit, submitting}) => (
+            onSubmit={() => {
+                setIsSubmitting(true)
+                addNewElement(index)
+            }}
+            initialValues={tempState}
+            render = { ({handleSubmit}) => (
                 <form onSubmit={handleSubmit} className={styles.wrapper}>
                         <div>
-                            <HeadList name={'Добавить деталь'} toggleActivateButton={toggleActivateSecondButton} isButtonActivate={isSecondButtonActivate}/>
+                            <HeadList name={tempState.name} toggleActivateButton={toggleActivateSecondButton} isButtonActivate={isSecondButtonActivate} index={index}/>
                             {isSecondButtonActivate &&
                                 <div className={styles.calculatorWrapper}>
-                                    <Field name='element' className={styles.select} component="select">
-                                        <option value="">Выбрать элемент</option>
-                                        <option value="Кузов">Кузов</option>
-                                        <option value="Крыша">Крыша</option>
-                                        <option value="Капот">Капот</option>
-                                        <option value="Крыло-ПЛ">Крыло-ПЛ</option>
-                                        <option value="Крыло-ПП">Крыло-ПП</option>
-                                        <option value="Крыло-ЗЛ">Крыло-ЗЛ</option>
-                                        <option value="Крыло-ЗП">Крыло-ЗП</option>
-                                    </Field>
+                                    <div
+                                    onChange={(e) => {
+                                        onFieldChange("name", e.target.value, index)
+                                    }}
+                                    >
+                                        <label >
+                                            <Field name='name' className={styles.select} component="select">
+                                                <option value="">Выбрать элемент</option>
+                                                <option value="Кузов">Кузов</option>
+                                                <option value="Крыша">Крыша</option>
+                                                <option value="Капот">Капот</option>
+                                                <option value="Крыло-ПЛ">Крыло-ПЛ</option>
+                                                <option value="Крыло-ПП">Крыло-ПП</option>
+                                                <option value="Крыло-ЗЛ">Крыло-ЗЛ</option>
+                                                <option value="Крыло-ЗП">Крыло-ЗП</option>
+                                            </Field>
+                                        </label>
+                                    </div>
                                     <p className={styles.text}>Укажите категорию автомобиля:</p>
                                     <div className={styles.radioGroupCategory} onChange={(e) => {
-                                        onFieldChange("category", e.target.value)
+                                        onFieldChange("category", e.target.value, index)
                                     }}>
                                         <label>
                                             <Field component='input' name='category' type='radio' value='1'/>
@@ -47,10 +60,9 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
 
                                     <div className={styles.radioGroupCategory}>
                                         <label>
-                                            <Field component='input' name='isAlluminium' type='checkbox' value='true' 
+                                            <Field component='input' name='isAluminum' type='checkbox' 
                                             onClick={(e) => {
-                                                // setTempState( prev => ({...prev, isAlluminium: !prev.isAlluminium}))
-                                                onFieldChange("isAlluminium", e.target.checked)
+                                                onFieldChange("isAluminum", e.target.checked, index)
                                             }}
                                             />
                                             Аллюминий
@@ -59,8 +71,7 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
 
                                     <p className={styles.text}>Определите вид-сложность работы:</p>
                                     <div className={styles.radioGroupTypeWork} onChange={(e) => {
-                                        // setTempState( prev => ({...prev, typeOfWork: e.target.value}))
-                                        onFieldChange("typeOfWork", e.target.value)
+                                        onFieldChange("typeOfWork", e.target.value, index)
                                     }}>
                                         <label>
                                             <Field component='input' name='typeOfWork' type='radio' value="1"/>
@@ -92,6 +103,10 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
                                                     className={styles.sizeInput} 
                                                     autoCorrect='false' 
                                                     autoComplete='false'
+                                                    onChange={(e) => {
+                                                        input.onChange(e)
+                                                        onFieldChange("size", e.target.value, index)
+                                                    }}
                                                     />
                                             ) }
                                         </Field>
@@ -108,7 +123,8 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
                                                     autoCorrect='false' 
                                                     autoComplete='false'
                                                     onChange={(e) => {
-                                                        onFieldChange("buildTime", e.target.value)
+                                                        input.onChange(e)
+                                                        onFieldChange("buildTime", e.target.value, index)
                                                     }}
                                                     />
                                             ) }
@@ -131,7 +147,7 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
                                     </div>
 
                                     <div className={styles.buttonWrapper}>
-                                        <button type='submit' disabled={submitting} className={styles.button}>Добавить</button>
+                                        <button type='submit' disabled={isSubmitting} className={styles.button}>Добавить</button>
                                     </div>
                                 </div>
                             }
@@ -140,6 +156,7 @@ const ElementsForm = ({onSubmit, toggleActivateSecondButton, isSecondButtonActiv
             ) }
         >
         </Form>
-)
+    )
+}
     
 export default ElementsForm

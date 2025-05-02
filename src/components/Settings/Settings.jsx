@@ -28,10 +28,43 @@ let Settings  = () => {
                 <SettingsTable tableName={'settings_standart_repairs'} settingsData={data.standartRepairsSettings} />
             )}
                 
-            <HeadList name='Сложный ремонт:' isButtonActivate={isSecondButtonActivate} toggleActivateButton={setIsSecondButtonActivate}/>
-            <HeadList name='Крыша:' isButtonActivate={isThirdButtonActivate} toggleActivateButton={setIsThirdButtonActivate}/>
-            <HeadList name='Град:' isButtonActivate={isFourthButtonActivate} toggleActivateButton={setIsFourthButtonActivate}/>
-            <HeadList name='Доп. настройки:' isButtonActivate={isFifthButtonActivate} toggleActivateButton={setIsFifthButtonActivate}/>
+            <HeadList name='Сложный ремонт:' isButtonActivate={isSecondButtonActivate} toggleActivateButton={() => {setIsSecondButtonActivate(!isSecondButtonActivate)}}/>
+            <>
+                {(isSecondButtonActivate && error) && (
+                    <p>Что-то пошло не так</p>
+                )}
+                {(isSecondButtonActivate && isLoading) && (
+                    <h1>Загрузка</h1>
+                )}
+                {(isSecondButtonActivate && data) && (
+                    <SettingsTable tableName={'settings_hard_repairs'} settingsData={data.hardRepairsSettings} />
+                )}
+            </>
+            <HeadList name='Крыша:' isButtonActivate={isThirdButtonActivate} toggleActivateButton={() => {setIsThirdButtonActivate(!isThirdButtonActivate)}}/>
+            <>
+                {(isThirdButtonActivate && error) && (
+                    <p>Что-то пошло не так</p>
+                )}
+                {(isThirdButtonActivate && isLoading) && (
+                    <h1>Загрузка</h1>
+                )}
+                {(isThirdButtonActivate && data) && (
+                    <SettingsTable tableName={'settings_roof'} settingsData={data.roofSettings} />
+                )}
+            </>
+            <HeadList name='Град:' isButtonActivate={isFourthButtonActivate} toggleActivateButton={() => {setIsFourthButtonActivate(!isFourthButtonActivate)}}/>
+            <>
+                {(isFourthButtonActivate && error) && (
+                    <p>Что-то пошло не так</p>
+                )}
+                {(isFourthButtonActivate && isLoading) && (
+                    <h1>Загрузка</h1>
+                )}
+                {(isFourthButtonActivate && data) && (
+                    <SettingsTable tableName={'settings_hail'} settingsData={data.hailSettings} />
+                )}
+            </>
+            <HeadList name='Доп. настройки:' isButtonActivate={isFifthButtonActivate} toggleActivateButton={() => {setIsFifthButtonActivate(!isFifthButtonActivate)}}/>
 
         </div>
     )
