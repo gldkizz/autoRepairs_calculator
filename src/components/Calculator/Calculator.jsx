@@ -3,7 +3,7 @@ import OwnerInfoForm from './OwnerInfoForm/OwnerInfoForm'
 import styles from './Calculator.module.css'
 import ElementsForm from './ElementsForm/ElementsForm'
 import useDebounce from '../common/functionsSupabase/useDebounce'
-import { useLazyGetSettingsQuery, useGetAdditionalSettingsQuery } from '../../api/apiSlice'
+import { useLazyGetSettingsQuery, useGetAdditionalSettingsQuery, useLazySaveCalculationQuery } from '../../api/apiSlice'
 import interpolation from '../common/functionsSupabase/interpolation'
 
 let Calculator  = () => {
@@ -41,6 +41,7 @@ let Calculator  = () => {
     const {data: additionalSettings} = useGetAdditionalSettingsQuery()
 
     const [fetchSettings,{data: settingData, error}] = useLazyGetSettingsQuery()
+    const [fetchSaveCalc, {data: saveCalcData}] = useLazySaveCalculationQuery()
 
     let toggleActivateFirstButton = () => {
         setIsFirstButtonActivate(!isFirstButtonActivate)
@@ -249,11 +250,8 @@ let Calculator  = () => {
     }
 
     const onSubmit = () => {
-        let data = {
-            'owner': ownerInfoState,
-            'elements': temporaryElementInfo.slice(0, -1)
-        }
-        console.log(data)
+        console.log(JSON.stringify(ownerInfoState), JSON.stringify(temporaryElementInfo.slice(0, -1)))
+        fetchSaveCalc({owner_data: ownerInfoState, elements_data:temporaryElementInfo.slice(0, -1)})
         // console.log(temporaryElementInfo.slice(0, -1))
     }
 

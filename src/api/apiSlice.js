@@ -94,9 +94,16 @@ export const supabaseApi = createApi({
                 if(error) throw error
                 return {data: additionalSettings}
             }
+        }),
+        saveCalculation: builder.query({
+            queryFn: async ({owner_data, elements_data}) => {
+                const {data: saveCalculationData, error} = await supabase.rpc('save_calculation',{owner_data: owner_data, elements_data: elements_data}).select("*")
+                if(error) throw error
+                return {data: saveCalculationData}
+            }
         })
     })
 })
 
 
-export const {useGetAllSettingsQuery, useUpdateSettingsMutation, useLazyGetSettingsQuery, useGetAdditionalSettingsQuery} = supabaseApi
+export const {useGetAllSettingsQuery, useUpdateSettingsMutation, useLazyGetSettingsQuery, useGetAdditionalSettingsQuery, useLazySaveCalculationQuery} = supabaseApi
