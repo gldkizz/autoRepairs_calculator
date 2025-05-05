@@ -468,3 +468,9 @@ label {
 legend {
 	display: block;
 }
+
+/* @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus, textarea:focus, input:focus, .input11:focus {
+          font-size: 16px;
+      }
+  } */

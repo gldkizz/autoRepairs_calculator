@@ -60,7 +60,7 @@
 }
 
 .sizeText, .buildTimeText, .priceText {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     align-self: center;
 }
@@ -93,11 +93,17 @@
 .select {
     appearance: none;
     -webkit-appearance: none;
-    font-size: 14px;
+    -moz-appearance: none;
+    font-size: 16px;
     font-weight: bold;
     background-color: #2A2A2A;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px 90px;
     text-align: center;
+    -webkit-text-align-last: center;
+    text-align-last: center;
+}
+.select:focus-visible {
+    outline: none;
 }

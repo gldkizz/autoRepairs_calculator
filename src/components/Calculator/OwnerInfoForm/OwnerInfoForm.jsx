@@ -1,6 +1,7 @@
 import { Form, Field } from 'react-final-form'
 import HeadList from '../../common/HeadList'
 import styles from './OwnerInfoForm.module.css'
+import InputMask from "@mona-health/react-input-mask";
 
 const OwnerInfoForm = ({onSubmit, isFirstButtonActivate, toggleActivateFirstButton, initialValues, onFieldChange}) => (
         <Form 
@@ -64,20 +65,23 @@ const OwnerInfoForm = ({onSubmit, isFirstButtonActivate, toggleActivateFirstButt
                                     </Field>
 
                                     <Field name="phonenumber">
-                                        { ({input}) => (
-                                            <input 
-                                                {...input} 
-                                                type="text" 
-                                                placeholder='Телефон' 
-                                                className={styles.ownerInfoFormItem} 
-                                                autoCorrect='false' 
-                                                autoComplete='false'
-                                                onChange={(e) => {
-                                                    input.onChange(e)
-                                                    onFieldChange("phonenumber", e.target.value)
-                                                }}
-                                                />
-                                        ) }
+                                        {({ input }) => (
+                                        <InputMask
+                                            {...input}
+                                            mask="+7 (999) 999-99-99"
+                                            maskChar="_"
+                                            placeholder="+7 (___) ___-__-__"
+                                            type="text"
+                                            className={styles.ownerInfoFormItem}
+                                            autoCorrect="false"
+                                            autoComplete="false"
+                                            onChange={(e) => {
+                                            input.onChange(e); // Для react-final-form
+                                            onFieldChange("phonenumber", e.target.value); // Ваш кастомный обработчик
+                                            }}
+                                        >
+                                        </InputMask>
+                                        )}
                                     </Field>
 
                                     <Field name="carModel">
@@ -99,10 +103,17 @@ const OwnerInfoForm = ({onSubmit, isFirstButtonActivate, toggleActivateFirstButt
                                 
                                     <Field name="carNumber">
                                         { ({input}) => (
-                                            <input 
+                                            <InputMask 
                                                 {...input} 
                                                 type="text" 
-                                                placeholder='Гос-номер' 
+                                                mask="a999aa999" // Для российских номеров формата А 123 БВ 45
+                                                maskChar={null}
+                                                placeholder="А123БВ45"
+                                                formatChars={{
+                                                  'a': '[А-Яа-я]',
+                                                  '9': '[0-9]'
+                                                }}
+                                                alwaysShowMask={true}
                                                 className={styles.ownerInfoFormItem} 
                                                 autoCorrect='false' 
                                                 autoComplete='false'
@@ -110,7 +121,7 @@ const OwnerInfoForm = ({onSubmit, isFirstButtonActivate, toggleActivateFirstButt
                                                     input.onChange(e)
                                                     onFieldChange("carNumber", e.target.value)
                                                 }}
-                                                />
+                                            ></InputMask>
                                         ) }
                                     </Field>
                                 </div>

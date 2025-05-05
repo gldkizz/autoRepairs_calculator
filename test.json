@@ -1,0 +1,116 @@
+[
+    {
+        "order_number": 2,
+        "timestamp": null,
+        "client": {
+            "client_id": 55,
+            "first_name": "",
+            "second_name": "",
+            "surname": "",
+            "phone": "",
+            "car": "",
+            "car_number": "",
+            "description": "''"
+        },
+        "details": [
+            {
+                "detail_id": 63,
+                "name": "Крыло-ПП",
+                "category": 1,
+                "is_aluminum": true,
+                "type_of_work": 2,
+                "size": 2,
+                "build_time": 0,
+                "price": 1690
+            }
+        ]
+    },
+    {
+        "order_number": 3,
+        "timestamp": "2025-05-03T14:59:01.84087+00:00",
+        "client": {
+            "client_id": 55,
+            "first_name": "",
+            "second_name": "",
+            "surname": "",
+            "phone": "",
+            "car": "",
+            "car_number": "",
+            "description": "''"
+        },
+        "details": [
+            {
+                "detail_id": 64,
+                "name": "Крыло-ПЛ",
+                "category": 1,
+                "is_aluminum": false,
+                "type_of_work": 2,
+                "size": 7,
+                "build_time": 0,
+                "price": 2250
+            }
+        ]
+    },
+    {
+        "order_number": 4,
+        "timestamp": "2025-05-03T17:32:14.55652+00:00",
+        "client": {
+            "client_id": 55,
+            "first_name": "",
+            "second_name": "",
+            "surname": "",
+            "phone": "",
+            "car": "",
+            "car_number": "",
+            "description": "''"
+        },
+        "details": [
+            {
+                "detail_id": 65,
+                "name": "Кузов",
+                "category": 2,
+                "is_aluminum": true,
+                "type_of_work": 1,
+                "size": 25,
+                "build_time": 0,
+                "price": 19890
+            }
+        ]
+    },
+    {
+        "order_number": 5,
+        "timestamp": "2025-05-05T15:28:43.136593+00:00",
+        "client": {
+            "client_id": 59,
+            "first_name": "Имя",
+            "second_name": "Фамилия",
+            "surname": "Отчество",
+            "phone": "+7 (123) 412-4",
+            "car": "КИА",
+            "car_number": "a231ff123",
+            "description": "''"
+        },
+        "details": [
+            {
+                "detail_id": 66,
+                "name": "Кузов",
+                "category": 1,
+                "is_aluminum": false,
+                "type_of_work": 1,
+                "size": 2,
+                "build_time": 0,
+                "price": 1700
+            },
+            {
+                "detail_id": 67,
+                "name": "Крыло-ПП",
+                "category": 2,
+                "is_aluminum": false,
+                "type_of_work": 2,
+                "size": 25,
+                "build_time": 0,
+                "price": 6250
+            }
+        ]
+    }
+]

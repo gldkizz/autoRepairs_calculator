@@ -91,10 +91,8 @@ const ElementsForm = ({addNewElement, toggleActivateSecondButton, isSecondButton
                                         </label>
                                     </div>
 
-                                    <p className={styles.text}>Добавочный уровень сложности:</p>
-
                                     <div className={styles.sizeWrapper}>
-                                        <p className={styles.sizeText}>Размер вмятины:</p>
+                                        <p className={styles.sizeText}>Размер вмятины / кол-во:</p>
                                         <Field name="size">
                                             { ({input}) => (
                                                 <input 

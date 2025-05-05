@@ -13,7 +13,6 @@ let Settings  = () => {
     const [isFifthButtonActivate, setIsFifthButtonActivate] = useState(false)
 
     const {data, error, isLoading} = useGetAllSettingsQuery()
-    console.log(data)
 
     return (
         <div className={styles.container}>

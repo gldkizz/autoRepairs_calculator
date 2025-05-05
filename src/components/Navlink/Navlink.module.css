@@ -25,5 +25,10 @@
 }
 
 .active li p{
-    color: red;
+    color: rgb(236, 104, 10);
 }
+
+.active svg {
+    color: rgb(236, 104, 10);
+}
+

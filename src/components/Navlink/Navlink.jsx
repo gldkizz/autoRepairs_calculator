@@ -10,7 +10,10 @@ let Navlink  = () => {
     return (
         <div className={styles.wrapper}>
             <ul className={styles.list}>
-                <NavLink to="/archive">
+                <NavLink 
+                to="/archive" 
+                className={({isActive}) => isActive ? styles.active : null}
+                >
                     <li className={styles.listItem}>
                             <div className={styles.logo}>
                                 <Package/>
@@ -18,7 +21,10 @@ let Navlink  = () => {
                         <p className={styles.text}>Архив</p>
                     </li>
                 </NavLink>
-                <NavLink to="/calculator">
+                <NavLink 
+                to="/calculator"
+                className={({isActive}) => isActive ? styles.active : null}
+                >
                     <li className={styles.listItem}>
                         <div className={styles.logo}>
                             <Calculator/>
@@ -26,7 +32,10 @@ let Navlink  = () => {
                         <p className={styles.text}>Калькулятор</p>
                     </li>
                 </NavLink>
-                <NavLink to="/account">
+                <NavLink 
+                to="/account"
+                className={({isActive}) => isActive ? styles.active : null}
+                >
                     <li className={styles.listItem}>
                         <div className={styles.logo}>
                             <SquareUserRound/>
@@ -34,7 +43,10 @@ let Navlink  = () => {
                         <p className={styles.text}>Аккаунт</p>
                     </li>
                 </NavLink>
-                <NavLink to="/settings">
+                <NavLink 
+                to="/settings"
+                className={({isActive}) => isActive ? styles.active : null}
+                >
                     <li className={styles.listItem}>
                         <div className={styles.logo}>
                             <Settings/>

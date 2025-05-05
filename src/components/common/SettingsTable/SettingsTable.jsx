@@ -173,6 +173,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input12 {
         grid-area: 3 / 3 / 4 / 4;
@@ -181,6 +182,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input13 {
         grid-area: 3 / 4 / 4 / 5;
@@ -189,6 +191,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input14 {
         grid-area: 3 / 5 / 4 / 6;
@@ -197,6 +200,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
 
     .input21 {
@@ -206,6 +210,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input22 {
         grid-area: 4 / 3 / 5 / 4;
@@ -214,6 +219,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input23 {
         grid-area: 4 / 4 / 5 / 5;
@@ -222,6 +228,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input24 {
         grid-area: 4 / 5 / 5 / 6;
@@ -230,6 +237,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
 
     .input31 {
@@ -239,6 +247,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input32 {
         grid-area: 5 / 3 / 6 / 4;
@@ -247,6 +256,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input33 {
         grid-area: 5 / 4 / 6 / 5;
@@ -255,6 +265,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input34 {
         grid-area: 5 / 5 / 6 / 6;
@@ -263,6 +274,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
 
     .input41 {
@@ -272,6 +284,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input42 {
         grid-area: 6 / 3 / 7 / 4;
@@ -280,6 +293,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input43 {
         grid-area: 6 / 4 / 7 / 5;
@@ -288,6 +302,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input44 {
         grid-area: 6 / 5 / 7 / 6;
@@ -296,6 +311,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
 
     .input51 {
@@ -305,6 +321,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input52 {
         grid-area: 7 / 3 / 8 / 4;
@@ -313,6 +330,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input53 {
         grid-area: 7 / 4 / 8 / 5;
@@ -321,6 +339,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
     .input54 {
         grid-area: 7 / 5 / 8 / 6;
@@ -329,6 +348,7 @@ const StyledWrapper = styled.div`
         max-width: 50px;
         text-align: center;
         justify-self: center;
+        border-radius: 0;
     }
 `
 

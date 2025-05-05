@@ -39,7 +39,6 @@ let Calculator  = () => {
     )
 
     const {data: additionalSettings} = useGetAdditionalSettingsQuery()
-
     const [fetchSettings,{data: settingData, error}] = useLazyGetSettingsQuery()
     const [fetchSaveCalc, {data: saveCalcData}] = useLazySaveCalculationQuery()
 
@@ -96,6 +95,73 @@ let Calculator  = () => {
             
             return newArray;
         })
+    }
+
+    const addNewElement = (index) => {
+        let newTemporaryElementInfo = 
+        {
+            name: 'Добавить деталь',
+            category: '0',
+            typeOfWork: '0',
+            isAluminum: false,
+            size: '0',
+            buildTime: '0',
+            price: '0'
+        }
+        let newSettingState = 
+        {
+            sizes: [],
+            prices: [],
+        }
+        setTemporaryElementInfo((prev) => {
+            let newArray = [...prev]
+            newArray.push(newTemporaryElementInfo)
+            return newArray
+        })
+        setSettingsState((prev) => {
+            let newArray = [...prev]
+            newArray.push(newSettingState)
+            return newArray
+        })
+        setIsSecondButtonActivate((prev) => {
+            let newArray = [...prev]
+            newArray.push(false)
+            return newArray
+        })
+        toggleActivateSecondButton(index)
+    }
+
+    const onSubmit = () => {
+        fetchSaveCalc({owner_data: ownerInfoState, elements_data:temporaryElementInfo.slice(0, -1)})
+        setTemporaryElementInfo([
+            {
+                name: 'Добавить деталь',
+                category: '0',
+                typeOfWork: '0',
+                isAluminum: false,
+                size: '0',
+                buildTime: '0',
+                price: '0'
+            }
+        ])
+        setSettingsState(
+            [
+                {
+                    sizes: [],
+                    prices: [],
+                }
+            ]
+        )
+        setOwnerInfoState(
+            {
+                lastName: "",
+                firstName: "",
+                surname: "",
+                phonenumber: "",
+                carModel: "",
+                carNumber: ""
+            }
+        )
     }
 
     // TODO: рефакторинг (когда-нибудь :) Убираю все консоль лог, чтобы не мешало, посмотри сколько раз выводятся они (т. е. обновляется компонента)
@@ -214,46 +280,6 @@ let Calculator  = () => {
         }
 
     }, [settingData, error, additionalSettings]);
-
-    const addNewElement = (index) => {
-        let newTemporaryElementInfo = 
-        {
-            name: 'Добавить деталь',
-            category: '0',
-            typeOfWork: '0',
-            isAluminum: false,
-            size: '0',
-            buildTime: '0',
-            price: '0'
-        }
-        let newSettingState = 
-        {
-            sizes: [],
-            prices: [],
-        }
-        setTemporaryElementInfo((prev) => {
-            let newArray = [...prev]
-            newArray.push(newTemporaryElementInfo)
-            return newArray
-        })
-        setSettingsState((prev) => {
-            let newArray = [...prev]
-            newArray.push(newSettingState)
-            return newArray
-        })
-        setIsSecondButtonActivate((prev) => {
-            let newArray = [...prev]
-            newArray.push(false)
-            return newArray
-        })
-        toggleActivateSecondButton(index)
-    }
-
-    const onSubmit = () => {
-        console.log(JSON.stringify(ownerInfoState), JSON.stringify(temporaryElementInfo.slice(0, -1)))
-        fetchSaveCalc({owner_data: ownerInfoState, elements_data:temporaryElementInfo.slice(0, -1)})
-        // console.log(temporaryElementInfo.slice(0, -1))
-    }
 
     return (
         <div className={styles.wrapper}>
